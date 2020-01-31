@@ -30,8 +30,25 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 @import "global.css";
 
-.section-headline {
+.list-of-projects {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 -20px;
+    flex-wrap: wrap;
+}
+
+.show-all {
+    width: 100%;
+    text-align: center;
     color: color(var(--terracotta));
+    display: block;
+}
+
+.section-headline {
+    color: color(var(--snow));
+    margin-bottom: 30px;
+    font-size: 2em;
 }
 
 

@@ -21,22 +21,22 @@ into the {body} of the default.hbs template --}}
 <main id="site-main" class="site-main outer">
 
     <section class="inner">
-        <h2 class="section-headline">Projekte</h2>
-        <div class="post-feed list-of-projects">
-            {{#foreach posts}}
+        <h2 class="section-headline">Projects</h2>
+        <div class="list-of-projects">
+            {{#foreach posts limit="3"}}
                 {{#has tag="project"}}
                     {{> "post-card"}}
                 {{/has}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-
             {{/foreach}}
         </div>
+
+        <a class="show-all" href="/projects">Show all projects</a>
     </section>
 
     <section class="inner">
         <h2 class="section-headline">Blog</h2>
         <div class="post-feed">
-            {{#foreach posts limit="5"}}
+            {{#foreach posts limit="7"}}
                 {{#has tag="project"}}
                     {{!-- do nothing, we don't wan't to render those posts that are a project --}}
                 {{else}}
@@ -46,5 +46,17 @@ into the {body} of the default.hbs template --}}
 
             {{/foreach}}
         </div>
+
+        <a class="show-all" href="/blog">Show all posts</a>
+    </section>
+
+    <section class="inner">
+        <h2 class="section-headline">Find Me Online</h2>
+        <ul style="color: white">
+            <li>florian.schmidt.1994@icloud.com</li>
+            <li>github.com/florianschmidt1994</li>
+            <li>linkedin.com/in/florianschmidt1994</li>
+            <li>twitter.com/floschmidt1994</li>
+        </ul>
     </section>
 </main>
