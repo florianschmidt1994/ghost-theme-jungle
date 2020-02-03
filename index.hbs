@@ -1,0 +1,54 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{> header background=@site.cover_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+<div class="inner">
+    <div class="site-header-content">
+        <h1 class="site-title">
+            {{#if @site.logo}}
+                <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}"/>
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </h1>
+        <style>.site-nav{top: 0!important;}.site-nav-left{margin-right: 0!important;}</style>
+        <h2>{{> "site-nav"}}</h2>
+        <h2 class="site-description">{{@site.description}}</h2>
+    </div>
+</div>
+</header>
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+
+    <section class="inner">
+        <h2 class="section-headline">Projects</h2>
+        <div class="list-of-projects">
+            {{#foreach posts limit="3"}}
+                {{#has tag="project"}}
+                    {{> "post-card"}}
+                {{/has}}
+            {{/foreach}}
+        </div>
+
+        <a class="show-all" href="/projects">Show all projects</a>
+    </section>
+
+    <section class="inner">
+        <h2 class="section-headline">Blog</h2>
+        <div class="post-feed">
+            {{#foreach posts limit="7"}}
+                {{#has tag="project"}}
+                    {{!-- do nothing, we don't wan't to render those posts that are a project --}}
+                {{else}}
+                    {{> "post-card"}}
+                {{/has}}
+            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+
+            {{/foreach}}
+        </div>
+
+        <a class="show-all" href="/blog">Show all posts</a>
+    </section>
+
+</main>
